@@ -1,0 +1,18 @@
+Printing the articles
+    <?php foreach($newsPosts as $newsPost):?>
+      <h2><?= $newsPost['title'];?></h2>
+      by: <?=$newsPost['author'];?>
+      <!--Make an if to check if picture is needed-->
+      <p><?= $newsPost['content'];?></p>
+      published: <?= $newsPost['publishDate'];?> likes: <?= $newsPost['likeCounter'];?>
+    <?php endforeach; ?>
+
+Searching Articles By Author
+    <?php $searchArticles = sortArticlesByName($newsPosts, 'Ni');?>
+    <?php foreach($searchArticles  as $newsPost):?>
+      <h2><?= $newsPost['title'];?></h2>
+      by: <?=$newsPost['author'];?>
+      <!--Make an if to check if picture is needed-->
+      <p><?= $newsPost['content'];?></p>
+      published: <?= $newsPost['publishDate'];?> likes: <?= $newsPost['likeCounter'];?>
+    <?php endforeach; ?>

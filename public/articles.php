@@ -19,10 +19,10 @@ require __DIR__.'/data.php';
   <title>Very Old News</title>
 </head>
 <body>
-  <div class="row">
+  <div class="row"><!--ROW1-->
     <div class="col-md-2">
 
-    </div>
+    </div><!--/Col-md-2-->
     <div class="col-md-8">
       <!--HEADLINE-->
       <h1 class="display-4">Very Old News</h1>
@@ -34,53 +34,85 @@ require __DIR__.'/data.php';
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="articles.php">Articles</a>
+            <a class="nav-item nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link active" href="#">Articles</a>
             <a class="nav-item nav-link" href="#">Authors</a>
           </div>
         </div>
       </nav>
       <!--END OF NAVBAR-->
+      <div class="row"><!--SELECTOR ROW-->
+        <div class="col-3">
+          <form>
+            <button type="sort" name="sortBy" value="author">Author</button>
+          </form>
+        </div>
+        <div class="col-3">
+          Date
+        </div>
+        <div class="col-3">
+          Popular
+        </div>
+        <div class="col-3">
+        </div>
+      </div><!--/SELECTOR ROW-->
+      <?php
+      if (isset($_GET['sortBy'])){
+        $sortBy = $_GET['sortBy'];
+        if ($sortBy === 'author'){
 
-      <?php foreach($newsPosts as $newsPost):?>
-        <div class="row">
-          <div class="col-12">
-            <h2><?= $newsPost['title'];?></h2>
+          foreach($newsPosts  as $newsPost):?>
+          <div class="row">
+            <div class="col-12">
+              <h2><?= $newsPost['title'];?></h2>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            by: <?=$newsPost['author'];?>
+          <div class="row">
+            <div class="col-12">
+              by: <?=$newsPost['author'];?>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            published: <?= $newsPost['publishDate'];?>
+          <div class="row">
+            <div class="col-12">
+              published: <?= $newsPost['publishDate'];?>
+            </div>
           </div>
-        </div>
-        <!--Make an if to check if picture is needed-->
-        <div class="row">
-          <div class="col-12">
-            <p><?= $newsPost['content'];?></p>
+          <!--Make an if to check if picture is needed-->
+          <div class="row">
+            <div class="col-12">
+              <p><?= $newsPost['content'];?></p>
+            </div>
           </div>
-        </div>
-      <div class="row">
-        <div class="col-11">
+          <div class="row">
+            <div class="col-11">
 
-        </div>
-        <div class="col-1">
-          likes: <?= $newsPost['likeCounter'];?>
-        </div>
-        <div class="col-6">
-        </div>
-      </div>
-      <?php endforeach; ?>
+            </div>
+            <div class="col-1">
+              likes: <?= $newsPost['likeCounter'];?>
+            </div>
+          </div>
+        <?php endforeach; ?>
+        <!--The Very Right Column-->
+
+
+      <?php
+      }
+      }
+      print_r(sortByAuthor($newsPosts));
+      ?>
+
+
+
+
+
+    </div><!--/Col-md-8-->
       <!--The Very Right Column-->
-    <div class="col-md-2">
+      <div class="col-md-2">
+
+      </div>
 
     </div>
-</div>
-
+  </div><!--/ROW1-->
 
 
 
