@@ -54,6 +54,14 @@ $newsPosts = [
     'publishDate' => '2018-09-29',
     'likeCounter' => 15,
     'contentIMG' => 'link'
+  ],
+  [
+    'title' => 'Vincents Svek',
+    'author' => 'Lovisa',
+    'content' => file_get_contents(__DIR__.'/articles/article7.txt'),
+    'publishDate' => '2018-09-29',
+    'likeCounter' => 900,
+    'contentIMG' => 'link'
   ]
 ];
 $authors = [

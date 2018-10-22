@@ -68,7 +68,7 @@ require __DIR__.'/data.php';
       <?php
       if (isset($_GET['sortBy'])){
         $sortBy = $_GET['sortBy'];
-        $authorName = $_GET['sortBy'];
+      
         //If statement to see how to be sorted.
         if ($sortBy === 'likes'){
           $sorted_posts = orderByLikes($newsPosts, 'likeCounter');
