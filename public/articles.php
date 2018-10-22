@@ -25,7 +25,7 @@ require __DIR__.'/data.php';
     </div><!--/Col-md-2-->
     <div class="col-md-8">
       <!--HEADLINE-->
-      <h1 class="display-4">Very Old News</h1>
+      <h1 class="display-4">WUES 18</h1>
       <!--NAVBAR-->
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#"></a>
@@ -36,11 +36,16 @@ require __DIR__.'/data.php';
           <div class="navbar-nav">
             <a class="nav-item nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link active" href="#">Articles</a>
-            <a class="nav-item nav-link" href="#">Authors</a>
+            <a class="nav-item nav-link" href="authors.php">Authors</a>
           </div>
         </div>
       </nav>
       <!--END OF NAVBAR-->
+      <div class="row">
+        <div class="col-12">
+          Sort by:
+        </div>
+      </div>
       <div class="row"><!--SELECTOR ROW-->
         <div class="col-3">
           <form>
@@ -48,10 +53,14 @@ require __DIR__.'/data.php';
           </form>
         </div>
         <div class="col-3">
-          Date
+          <form>
+            <button type="sort" name="sortBy" value="date">Date</button>
+          </form>
         </div>
         <div class="col-3">
-          Popular
+          <form>
+            <button type="sort" name="sortBy" value="likes">Popular</button>
+          </form>
         </div>
         <div class="col-3">
         </div>
@@ -59,9 +68,22 @@ require __DIR__.'/data.php';
       <?php
       if (isset($_GET['sortBy'])){
         $sortBy = $_GET['sortBy'];
-        if ($sortBy === 'author'){
+        $authorName = $_GET['sortBy'];
+        //If statement to see how to be sorted.
+        if ($sortBy === 'likes'){
+          $sorted_posts = orderByLikes($newsPosts, 'likeCounter');
+        }elseif ($sortBy === 'date'){
+          $sorted_posts = orderByDate($newsPosts);
+        }elseif ($sortBy === 'author'){
+          $sorted_posts = orderByAuthor($newsPosts);
+        }elseif ($sortBy === 'selectedAuthor'){
+          $sorted_posts = selectByName($newsPosts, $_GET['authorName']);
+        }
 
-          foreach($newsPosts  as $newsPost):?>
+
+
+        //Loop to post the sorted articles
+          foreach($sorted_posts  as $newsPost):?>
           <div class="row">
             <div class="col-12">
               <h2><?= $newsPost['title'];?></h2>
@@ -84,21 +106,19 @@ require __DIR__.'/data.php';
             </div>
           </div>
           <div class="row">
-            <div class="col-11">
+            <div class="col-10">
 
             </div>
-            <div class="col-1">
+            <div class="col-2">
               likes: <?= $newsPost['likeCounter'];?>
             </div>
+
           </div>
         <?php endforeach; ?>
         <!--The Very Right Column-->
-
-
       <?php
       }
-      }
-      print_r(sortByAuthor($newsPosts));
+
       ?>
 
 

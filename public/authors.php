@@ -19,10 +19,10 @@ require __DIR__.'/data.php';
   <title>Very Old News</title>
 </head>
 <body>
-  <div class="row">
+  <div class="row"><!--ROW1-->
     <div class="col-md-2">
 
-    </div>
+    </div><!--/Col-md-2-->
     <div class="col-md-8">
       <!--HEADLINE-->
       <h1 class="display-4">WUES 18</h1>
@@ -34,61 +34,28 @@ require __DIR__.'/data.php';
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
             <a class="nav-item nav-link" href="articles.php">Articles</a>
-            <a class="nav-item nav-link" href="authors.php">Authors</a>
+            <a class="nav-item nav-link active" href="index.php">Authors</a>
           </div>
         </div>
       </nav>
-      <!--END OF NAVBAR-->
+      <div class="row"><!--ROW2-->
+        <div class="col-12">
+          <?php
+          //Printing out all the author in a foreach-loop
+          foreach ($authors as $author):?>
+          <img src="<?= $author['imgURL'] ?>">
 
-
-      <!--Put in a random article?-->
-      <?php foreach($newsPosts as $newsPost):?>
-        <div class="row">
-          <div class="col-12">
-            <h2><?= $newsPost['title'];?></h2>
-          </div>
+          <a href="articles.php?sortBy=selectedAuthor&authorName=<?=$author['firstname']?>  "><?= $author['firstname'] . " " . $author['lastname'];?></a>
+          <br>
+        <?php endforeach; ?>
         </div>
-        <div class="row">
-          <div class="col-12">
-            by: <?=$newsPost['author'];?>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-12">
-            published: <?= $newsPost['publishDate'];?>
-          </div>
-        </div>
-        <!--Make an if to check if picture is needed-->
-        <div class="row">
-          <div class="col-12">
-            <p><?= $newsPost['content'];?></p>
-          </div>
-        </div>
-      <div class="row">
-        <div class="col-10">
+      </div><!--ROW2-->
+      <div class="col-md-2">
 
-        </div>
-        <div class="col-2">
-          likes: <?= $newsPost['likeCounter'];?>
-        </div>
-        <div class="col-6">
-        </div>
-      </div>
-      <?php endforeach; ?>
-      <!--The Very Right Column-->
-    <div class="col-md-2">
-
-    </div>
-</div>
-
-
-
-
-
-
-
+      </div><!--/Col-md-2-->
+    </div><!--ROW1-->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
