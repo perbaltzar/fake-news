@@ -1,6 +1,6 @@
 <?php
 declare(strict_types=1);
-
+$openArticle = 0;
 
 require __DIR__.'/functions.php';
 require __DIR__.'/data.php';
@@ -17,6 +17,19 @@ require __DIR__.'/data.php';
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
   <title>Very Old News</title>
+  <style>
+  a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover
+{
+   color: inherit;
+   text-decoration:none;
+   cursor:pointer;
+}
+  </style>
 </head>
 <body>
   <div class="row">
@@ -41,7 +54,11 @@ require __DIR__.'/data.php';
         </div>
       </nav>
       <!--END OF NAVBAR-->
-
+      <?php
+      if (isset($_GET['openArticleID'])){
+        $openArticle = $_GET['openArticleID'];
+      }
+       ?>
 
       <!--Put in a random article?-->
       <?php foreach($newsPosts as $newsPost):?>
@@ -52,18 +69,20 @@ require __DIR__.'/data.php';
         </div>
         <div class="row">
           <div class="col-12">
-            by: <?=$newsPost['author'];?>
+            <b>By:</b> <?=$newsPost['author'];?>
           </div>
         </div>
         <div class="row">
           <div class="col-12">
-            published: <?= $newsPost['publishDate'];?>
+            <b>Published:</b> <?= $newsPost['publishDate'];?>
           </div>
         </div>
         <!--Make an if to check if picture is needed-->
         <div class="row">
           <div class="col-12">
-            <p><?= $newsPost['content'];?></p>
+            <p><a href="index.php?openArticleID=<?=$newsPost['articleID']?>">
+              <?=$newsPost['articleID'] ==  $openArticle ? $newsPost['content'] : substr($newsPost['content'], 0, 200) . '...';?>
+            </a></p>
           </div>
         </div>
       <div class="row">

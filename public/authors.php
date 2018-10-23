@@ -50,7 +50,7 @@ require __DIR__.'/data.php';
             <div style="display: inline-block; display: flex; flex-flow: column; align-items: center;" class="col-3">
             <img style = "height: 150px;" class = "img-thumbnail" src="<?= $author['imgURL'] ?>">
 
-            <a href="articles.php?sortBy=selectedAuthor&authorName=<?=$author['firstname']?>  "><?= $author['firstname'] . " " . $author['lastname'];?></a>
+            <a href="articles.php?sortBy=selectedAuthor&authorName=<?=$author['firstname']?>"><?= $author['firstname'] . " " . $author['lastname'];?></a>
             <br>
             </div>
           <?php endforeach;?>

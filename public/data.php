@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 $newsPosts = [
   [
-    'title' => 'Headline',
+    'title' => 'Headless Chicken',
     'author' => 'Per',
     'content' => file_get_contents(__DIR__.'/articles/article1.txt'),
     'publishDate' => '2018-10-17',
     'likeCounter' => 6,
-    'contentIMG' => 'link'
+    'contentIMG' => 'link',
+    'articleID' => 1
   ],
   [
     'title' => 'Headline 2',
@@ -17,7 +18,8 @@ $newsPosts = [
     'content' => file_get_contents(__DIR__.'/articles/article2.txt'),
     'publishDate' => '2018-10-19',
     'likeCounter' => 1,
-    'contentIMG' => 'link'
+    'contentIMG' => 'link',
+    'articleID' => 2
   ]
   ,
   [
@@ -26,7 +28,8 @@ $newsPosts = [
     'content' => file_get_contents(__DIR__.'/articles/article3.txt'),
     'publishDate' => '2018-10-18',
     'likeCounter' => 2,
-    'contentIMG' => 'link'
+    'contentIMG' => 'link',
+    'articleID' => 3
   ]
   ,
   [
@@ -35,7 +38,8 @@ $newsPosts = [
     'content' => file_get_contents(__DIR__.'/articles/article4.txt'),
     'publishDate' => '2018-10-18',
     'likeCounter' => 10,
-    'contentIMG' => 'link'
+    'contentIMG' => 'link',
+    'articleID' => 4
   ]
   ,
   [
@@ -44,7 +48,8 @@ $newsPosts = [
     'content' => file_get_contents(__DIR__.'/articles/article5.txt'),
     'publishDate' => '2018-10-20',
     'likeCounter' => 10,
-    'contentIMG' => 'link'
+    'contentIMG' => 'link',
+    'articleID' => 5
   ]
   ,
   [
@@ -53,7 +58,8 @@ $newsPosts = [
     'content' => file_get_contents(__DIR__.'/articles/article6.txt'),
     'publishDate' => '2018-09-29',
     'likeCounter' => 15,
-    'contentIMG' => 'link'
+    'contentIMG' => 'link',
+    'articleID' => 6
   ],
   [
     'title' => 'Vincents Svek',
@@ -61,7 +67,8 @@ $newsPosts = [
     'content' => file_get_contents(__DIR__.'/articles/article7.txt'),
     'publishDate' => '2018-09-29',
     'likeCounter' => 900,
-    'contentIMG' => 'link'
+    'contentIMG' => 'link',
+    'articleID' => 7
   ]
 ];
 $authors = [

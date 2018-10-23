@@ -30,8 +30,9 @@ function selectByName(array $articles, string $name): array {
         'author' => $name,
         'content' => '',
         'publishDate' => '',
-        'likeCounter' => 0,
-        'contentIMG' => '']
+        'likeCounter' => '',
+        'contentIMG' => ''
+        ]
       ];
     }
     foreach($articles as $article){
