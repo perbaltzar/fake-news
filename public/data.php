@@ -1,5 +1,8 @@
 <?php
 declare(strict_types=1);
+//Defining variable
+$openArticle = 0;
+
 //The collection of data. Arrays and such
 
 $newsPosts = [
@@ -9,56 +12,56 @@ $newsPosts = [
     'content' => file_get_contents(__DIR__.'/articles/article1.txt'),
     'publishDate' => '2018-10-17',
     'likeCounter' => 6,
-    'contentIMG' => 'link',
+    'contentIMG' => '',
     'articleID' => 1
   ],
   [
-    'title' => 'Headline 2',
+    'title' => 'Origin of the Universe',
     'author' => 'Nils',
     'content' => file_get_contents(__DIR__.'/articles/article2.txt'),
     'publishDate' => '2018-10-19',
     'likeCounter' => 1,
-    'contentIMG' => 'link',
+    'contentIMG' => '',
     'articleID' => 2
   ]
   ,
   [
-    'title' => 'Headline 3',
+    'title' => 'Area Man Thankful To Be Single During Golden Age Of Television',
     'author' => 'Nils',
     'content' => file_get_contents(__DIR__.'/articles/article3.txt'),
     'publishDate' => '2018-10-18',
     'likeCounter' => 2,
-    'contentIMG' => 'link',
+    'contentIMG' => '',
     'articleID' => 3
   ]
   ,
   [
-    'title' => 'Headline 4',
+    'title' => '104-Year-Old Reveals Secret To Long Life Being Cursed By Witch To Wander Earth Eternally',
     'author' => 'Nils',
     'content' => file_get_contents(__DIR__.'/articles/article4.txt'),
     'publishDate' => '2018-10-18',
     'likeCounter' => 10,
-    'contentIMG' => 'link',
+    'contentIMG' => 'https://i.kinja-img.com/gawker-media/image/upload/s--iI26gvpB--/c_scale,f_auto,fl_progressive,q_80,w_800/ulcb7kpxnb9kfxtcchpz.jpg',
     'articleID' => 4
   ]
   ,
   [
-    'title' => 'Headline 5',
-    'author' => 'Nils',
+    'title' => 'Trump Announces He’ll Pay Legal Fees Of Any Rally Attendee Who Beats Up Ted Cruz',
+    'author' => 'Erik',
     'content' => file_get_contents(__DIR__.'/articles/article5.txt'),
     'publishDate' => '2018-10-20',
     'likeCounter' => 10,
-    'contentIMG' => 'link',
+    'contentIMG' => '',
     'articleID' => 5
   ]
   ,
   [
-    'title' => 'Headline 6',
+    'title' => 'Luke, Owen Wilson Recall Meeting On Set Of ‘The Royal Tenenbaums’',
     'author' => 'Hanna',
     'content' => file_get_contents(__DIR__.'/articles/article6.txt'),
     'publishDate' => '2018-09-29',
     'likeCounter' => 15,
-    'contentIMG' => 'link',
+    'contentIMG' => 'https://i.kinja-img.com/gawker-media/image/upload/s--seVZhAFh--/c_scale,f_auto,fl_progressive,q_80,w_800/notzfhuc3wquuxx23xls.jpg',
     'articleID' => 6
   ],
   [
@@ -67,7 +70,7 @@ $newsPosts = [
     'content' => file_get_contents(__DIR__.'/articles/article7.txt'),
     'publishDate' => '2018-09-29',
     'likeCounter' => 900,
-    'contentIMG' => 'link',
+    'contentIMG' => '',
     'articleID' => 7
   ]
 ];

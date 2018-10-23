@@ -1,46 +1,8 @@
 <?php
-declare(strict_types=1);
+require __DIR__.'/header.php';
 
 
-require __DIR__.'/functions.php';
-require __DIR__.'/data.php';
 ?>
-
-<!doctype html>
-<html lang="en">
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-  <title>Very Old News</title>
-</head>
-<body>
-  <div class="row"><!--ROW1-->
-    <div class="col-md-2">
-
-    </div><!--/Col-md-2-->
-    <div class="col-md-8">
-      <!--HEADLINE-->
-      <h1 class="display-4">WUES 18</h1>
-      <!--NAVBAR-->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-          <div class="navbar-nav">
-            <a class="nav-item nav-link" href="index.php">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link active" href="#">Articles</a>
-            <a class="nav-item nav-link" href="authors.php">Authors</a>
-          </div>
-        </div>
-      </nav>
-      <!--END OF NAVBAR-->
       <div class="row">
         <div class="col-12">
           Sort by:
@@ -68,8 +30,7 @@ require __DIR__.'/data.php';
       <?php
       if (isset($_GET['sortBy'])){
         $sortBy = $_GET['sortBy'];
-
-        //If statement to see how to be sorted.
+        //If statement to see how the articles are to be sorted.
         if ($sortBy === 'likes'){
           $sorted_posts = orderByLikes($newsPosts, 'likeCounter');
         }elseif ($sortBy === 'date'){
@@ -79,53 +40,21 @@ require __DIR__.'/data.php';
         }elseif ($sortBy === 'selectedAuthor'){
           $sorted_posts = selectByName($newsPosts, $_GET['authorName']);
         }
+      }
+      require __DIR__.'/article_loop.php';
 
 
 
-        //Loop to post the sorted articles
-          foreach($sorted_posts  as $newsPost):?>
-          <div class="row">
-            <div class="col-12">
-              <h2><?= $newsPost['title'];?></h2>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              by: <?=$newsPost['author'];?>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-12">
-              published: <?= $newsPost['publishDate'];?>
-            </div>
-          </div>
-          <!--Make an if to check if picture is needed-->
-          <div class="row">
-            <div class="col-12">
-              <p><?= $newsPost['content'];?></p>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-10">
 
-            </div>
-            <div class="col-2">
-              likes: <?= $newsPost['likeCounter'];?>
-            </div>
-
-          </div>
-        <?php endforeach; ?>
+        ?>
         <!--The Very Right Column-->
-      <?php
-    }
-
-      ?>
 
 
 
 
 
-    </div><!--/Col-md-8-->
+
+
       <!--The Very Right Column-->
       <div class="col-md-2">
 

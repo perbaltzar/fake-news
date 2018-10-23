@@ -15,7 +15,6 @@ declare(strict_types=1);
 // använda array_filter istället?
 // return $name === 'Per' //true
 function selectByName(array $articles, string $name): array {
-  $authorArticles = [];
   $errorCounter = 0;
   foreach($articles as $article){
     if ($article['author'] !== $name){
@@ -35,13 +34,15 @@ function selectByName(array $articles, string $name): array {
         ]
       ];
     }
-    foreach($articles as $article){
-      if ($article['author'] === $name){
-        $authorArticles[] = $article;
-      }
-    }
-    return $authorArticles;
+    else
+    {
+      $authorArticles = array_filter(($articles), function($article) use ($name) {
+        return ($article['author'] === $name);
+      });
+
   }
+  return $authorArticles;
+}
 
 //--------------------------------------------------------
   /**
@@ -101,3 +102,15 @@ function selectByName(array $articles, string $name): array {
     return $data;
   }
 //--------------------------------------------------------
+//--------------------------------------------------------
+
+/**
+ * Returns a random article from the collection
+ * @param  array the articles to be chosen from
+ * @return array a random article
+ */
+function getRandomArticle(array $articles): array {
+  $returnarticles = [];
+  $returnarticles[] = $articles[rand(0, count($articles)-1)];
+  return $returnarticles;
+}
