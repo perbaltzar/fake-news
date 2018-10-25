@@ -114,3 +114,15 @@ function getRandomArticle(array $articles): array {
   $returnarticles[] = $articles[rand(0, count($articles)-1)];
   return $returnarticles;
 }
+/**
+ * Give you an array with the selected article-info
+ * @param  int   $article  article ID
+ * @param  array $articles All the articles
+ * @return array           an array with the only selected article
+ */
+function getSelectedArticle(int $article, array $articles): array {
+  return array_filter($articles, function($articles) use ($article) {
+    return $articles['articleID'] === $article;
+
+  });
+}

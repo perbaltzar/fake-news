@@ -8,25 +8,28 @@ require __DIR__.'/header.php';
           Sort by:
         </div>
       </div>
-      <div class="row"><!--SELECTOR ROW-->
-        <div class="col-3">
-          <form>
-            <button type="sort" name="sortBy" value="author">Author</button>
-          </form>
-        </div>
-        <div class="col-3">
-          <form>
-            <button type="sort" name="sortBy" value="date">Date</button>
-          </form>
-        </div>
-        <div class="col-3">
-          <form>
-            <button type="sort" name="sortBy" value="likes">Popular</button>
-          </form>
-        </div>
-        <div class="col-3">
-        </div>
-      </div><!--/SELECTOR ROW-->
+        <div class="row"><!--SELECTOR ROW-->
+          <div class="col-3">
+
+          </div>
+          <div class="col-2">
+            <form>
+              <button type="sort" name="sortBy" value="author">Author</button>
+            </form>
+          </div>
+          <div class="col-2">
+            <form>
+              <button type="sort" name="sortBy" value="date">Date</button>
+            </form>
+          </div>
+          <div class="col-2">
+            <form>
+              <button type="sort" name="sortBy" value="likes">Popular</button>
+            </form>
+          </div>
+          <div class="col-3">
+          </div>
+        </div><!--/SELECTOR ROW-->
       <?php
       if (isset($_GET['sortBy'])){
         $sortBy = $_GET['sortBy'];
@@ -55,13 +58,7 @@ require __DIR__.'/header.php';
 
 
 
-      <!--The Very Right Column-->
-      <div class="col-md-2">
-
-      </div>
-
-    </div>
-  </div><!--/ROW1-->
+      <!--The Very Right Column
 
 
 
