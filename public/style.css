@@ -64,3 +64,18 @@ h2{
  height: auto;
  width: 270px;
 }
+/*Making small pretty buttons*/
+.sort-button{
+   margin: 0 5px 5px 5px;
+   width: 80px;
+   height: 28px;
+   border-radius: 5px;
+   color: white;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: #17A2B8;
+}
+.sort-button:hover{
+  background-color: #0B8597;
+}

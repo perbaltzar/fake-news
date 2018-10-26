@@ -12,6 +12,6 @@ The making of a news site as a school project in
 Per Baltzar
 
 ## Testers
-No one yet, not much to test so far.
+Nils Nathorst Windahl
 
 YRGO 2018

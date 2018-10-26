@@ -4,7 +4,17 @@ declare(strict_types=1);
 
 require __DIR__.'/functions.php';
 require __DIR__.'/data.php';
-$sorted_posts = $newsPosts;
+
+if (isset($_GET['isAuthorSelected']) && isset($_GET['authorName']))
+{
+  $isAuthorSelected = $_GET['isAuthorSelected'];
+  $authorName = $_GET['authorName'];
+  $isauthor_printing = '&isAuthorSelected=true&authorName='.$_GET['authorName'];
+}else{
+  $isauthor_printing = '';
+  $isAuthorSelected = false;
+}
+
 
 
 ?>
@@ -41,9 +51,9 @@ $sorted_posts = $newsPosts;
         </button>
         <div class="collapse navbar-collapse fixed-position" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link text-light" href="index.php?isReading=false">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link text-light" href="articles.php?isReading=false">Articles</a>
-            <a class="nav-item nav-link text-light" href="authors.php?isReading=false">Authors</a>
+            <a class="nav-item nav-link text-light" href="index.php?isReading=false<?=$isauthor_printing;?>">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link text-light" href="articles.php?isReading=false<?=$isauthor_printing;?>">Articles</a>
+            <a class="nav-item nav-link text-light" href="authors.php?isReading=false<?=$isauthor_printing;?>">Authors</a>
           </div>
         </div>
       </nav>

@@ -22,7 +22,7 @@ $related_articles = getRelatedArticle($sorted_posts, $newsPosts);
     </div>
     <div class="col-sm-6 col-8">
 
-      <a href="articles.php?sortBy=selectedAuthor&authorName=<?=$sorted_author['firstname']?>"> <p>Read more from <?= $sorted_author['firstname'] . ' ' . $sorted_author['lastname'];?></a>
+      <a href="articles.php?isAuthorSelected=true&authorName=<?= $sorted_author['firstname'];?>"> <p>Read more from <?= $sorted_author['firstname'] . ' ' . $sorted_author['lastname'];?></a>
       </div>
     <?php endforeach ?>
 
