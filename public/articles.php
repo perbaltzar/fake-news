@@ -35,7 +35,7 @@ require __DIR__.'/header.php';
         $sortBy = $_GET['sortBy'];
         //If statement to see how the articles are to be sorted.
         if ($sortBy === 'likes'){
-          $sorted_posts = orderByLikes($newsPosts, 'likeCounter');
+          $sorted_posts = orderByLikes($newsPosts);
         }elseif ($sortBy === 'date'){
           $sorted_posts = orderByDate($newsPosts);
         }elseif ($sortBy === 'author'){
@@ -58,7 +58,7 @@ require __DIR__.'/header.php';
 
 
 
-      <!--The Very Right Column
+      <!--The Very Right Column-->
 
 
 

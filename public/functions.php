@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 
 //--------------------------------------------------------
+//--------------------------------------------------------
 //the functions of the show.
 /**
 * Returns articles with a specific author
@@ -11,9 +12,6 @@ declare(strict_types=1);
 * @param  string name of the author
 * @return array abn array with the chosen articles
 */
-
-// använda array_filter istället?
-// return $name === 'Per' //true
 function selectByName(array $articles, string $name): array {
   $errorCounter = 0;
   foreach($articles as $article){
@@ -39,11 +37,11 @@ function selectByName(array $articles, string $name): array {
       $authorArticles = array_filter(($articles), function($article) use ($name) {
         return ($article['author'] === $name);
       });
-
   }
   return $authorArticles;
 }
 
+//--------------------------------------------------------
 //--------------------------------------------------------
   /**
   * [orderByLikes description]
@@ -65,6 +63,7 @@ function selectByName(array $articles, string $name): array {
     return $data;
   }
 //--------------------------------------------------------
+//--------------------------------------------------------
   /**
   * [orderByLikes description]
   * @param  array  $data  The post to by sorted
@@ -84,6 +83,7 @@ function selectByName(array $articles, string $name): array {
     usort($data, "compare");
     return $data;
   }
+//--------------------------------------------------------
 //--------------------------------------------------------
 /**
   * [orderByLikes description]
@@ -114,6 +114,9 @@ function getRandomArticle(array $articles): array {
   $returnarticles[] = $articles[rand(0, count($articles)-1)];
   return $returnarticles;
 }
+//--------------------------------------------------------
+//--------------------------------------------------------
+
 /**
  * Give you an array with the selected article-info
  * @param  int   $article  article ID
@@ -125,4 +128,14 @@ function getSelectedArticle(int $article, array $articles): array {
     return $articles['articleID'] === $article;
 
   });
+}
+//--------------------------------------------------------
+//--------------------------------------------------------
+
+function getAuthorInfo(array $authors, string $name) {
+  return array_filter($authors, function($author) use ($name){
+    return $author['firstname'] === $name;
+  });
+
+
 }

@@ -1,26 +1,10 @@
 <?php foreach($sorted_posts as $newsPost):?>
-  <div class="row"><!--FIRST ROW-->
-    <div class="col-2">
-
-    </div>
-    <div class="col-8" id="article<?=$newsPost['articleID']?>">
-      <a href="read-article.php?isReading=true&readArticle=<?=$newsPost['articleID'];?>">
-      <h2><?= $newsPost['title'];?></h2>
-      </a>
-    </div>
-    <div class="col-2">
-
-    </div>
-  </div><!--END FIRST ROW-->
   <div class="row"><!--SECOND ROW-->
-    <div class="col-2">
-
-    </div>
-    <div class ="col-8 img-box">
+    <div class ="col-10 img-box">
     <?php
     if ($newsPost['contentIMG'] !== ''):?>
       <a href="read-article.php?isReading=true&readArticle=<?=$newsPost['articleID'];?>">
-      <img class="article-img" src="<?=$newsPost['contentIMG'];?>" style="height: 400px; width: 700px;">
+      <img class="article-img" src="<?=$newsPost['contentIMG'];?>" style="height: 400px; width: 100%;">
       </a>
     <?php endif; ?>
     </div>
@@ -28,28 +12,32 @@
 
     </div>
   </div><!--END SECOND ROW-->
-  <div class="row"><!--THIRD ROW-->
+
+  <div class="row"><!--FIRST ROW-->
+
+    <div class="col-10 headline-container" id="article<?=$newsPost['articleID']?>">
+      <a href="read-article.php?isReading=true&readArticle=<?=$newsPost['articleID'];?>">
+      <h2><?= $newsPost['title'];?></h2>
+      <p>
+      </a>
+    </div>
     <div class="col-2">
 
     </div>
+  </div><!--END FIRST ROW-->
+  <div class="row author-date-container"><!--THIRD ROW-->
+
     <div class="col-2">
       <p>By: <?=$newsPost['author'];?></p>
+      <p><?=$newsPost['publishDate'];?></p>
     </div>
-    <div class="col-4">
+    <div class="col-10">
       <!--EMPTY DIV-->
-    </div>
-    <div class="col-2">
-      <p><?= $newsPost['publishDate'];?></p>
-    </div>
-    <div class="col-2">
-
     </div>
   </div><!--END THIRD ROW-->
   <div class="row"><!--FOURTH ROW-->
-    <div class="col-2">
 
-    </div>
-    <div class="col-8">
+    <div class="col-10">
       <p>
       <a href="read-article.php?isReading=true&readArticle=<?=$newsPost['articleID'];?>">
         <?php

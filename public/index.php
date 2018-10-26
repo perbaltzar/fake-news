@@ -3,7 +3,7 @@ require __DIR__.'/header.php';
 ?>
       <div class="row">
         <div class="col-12">
-          <h3>Welcome to the fantastic real fake news site of WU18</h3>
+
         </div>
       </div>
       <?php
@@ -19,4 +19,5 @@ require __DIR__.'/header.php';
 
 <?php
 require __DIR__.'/footer.php';
+
 ?>

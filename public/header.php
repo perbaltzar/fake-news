@@ -17,8 +17,11 @@ $sorted_posts = $newsPosts;
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Notable" rel="stylesheet">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
+
   <title>WUES 18</title>
 </head>
 <body>
@@ -29,6 +32,7 @@ $sorted_posts = $newsPosts;
     <div class="col-md-8">
       <!--HEADLINE-->
       <h1 class="display-4">WUES 18</h1>
+      <h6>The fantastic real fake news site of WU18</h6>
       <!--NAVBAR-->
       <nav class="navbar navbar-expand-lg navbar-light bg-light ">
         <a class="navbar-brand" href="#"></a>

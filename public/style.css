@@ -15,10 +15,35 @@ width: 20px;
 }
 
 .img-box{
-  display: flex;
-  justify-content: center;
+
+  margin-top: 30px;
 }
 .article-img{
   width: 500px;
   height: 300px;
+}
+
+p{
+  font-family: 'Nunito', sans-serif;
+  font-weight: 50;
+  font-size: 17px;
+  letter-spacing: 0.05rem;
+  border-spacing: 35px;
+}
+h1{
+  font-family: 'Notable', sans-serif;
+}
+h2{
+  font-family: 'Helvetica';
+  font-weight: bold;
+  font-size: 40px;
+  letter-spacing: 0.07rem;
+}
+.headline-container{
+  padding-top: 20px;
+  margin-bottom: 0px;
+}
+.author-date-container p{
+  font-weight: lighter;
+  font-size: 11px;
 }

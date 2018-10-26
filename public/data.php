@@ -95,7 +95,7 @@ $newsPosts = [
     'publishDate' => '2018-10-07',
     'likeCounter' => 900,
     'contentIMG' => 'https://qpr2l7.imagenii.com/static1.seesainttropez.com/image_uploader/photos/e4/large/where-to-stay-in-saint-tropez-with-friends.jpg?f=q(v=.8)&auth=92db279fc2264a0f42037a965f5a771dd652df27',
-    'articleID' => 8
+    'articleID' => 9
   ]
 ];
 $authors = [
