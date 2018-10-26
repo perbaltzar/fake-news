@@ -32,18 +32,18 @@ $sorted_posts = $newsPosts;
     <div class="col-md-8">
       <!--HEADLINE-->
       <h1 class="display-4">WUES 18</h1>
-      <h6>The fantastic real fake news site of WU18</h6>
+      <h6>-the fantastic real fake news site of WU18</h6>
       <!--NAVBAR-->
-      <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+      <nav class="navbar navbar-expand-lg navbar-light bg-info">
         <a class="navbar-brand" href="#"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse fixed-position" id="navbarNavAltMarkup">
           <div class="navbar-nav">
-            <a class="nav-item nav-link" href="index.php?isReading=false">Home <span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="articles.php?isReading=false">Articles</a>
-            <a class="nav-item nav-link" href="authors.php?isReading=false">Authors</a>
+            <a class="nav-item nav-link text-light" href="index.php?isReading=false">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link text-light" href="articles.php?isReading=false">Articles</a>
+            <a class="nav-item nav-link text-light" href="authors.php?isReading=false">Authors</a>
           </div>
         </div>
       </nav>

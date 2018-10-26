@@ -4,7 +4,7 @@
     <?php
     if ($newsPost['contentIMG'] !== ''):?>
       <a href="read-article.php?isReading=true&readArticle=<?=$newsPost['articleID'];?>">
-      <img class="article-img" src="<?=$newsPost['contentIMG'];?>" style="height: 400px; width: 100%;">
+      <img class="article-img img-fluid" src="<?=$newsPost['contentIMG'];?>" style= "height: 100%; width: 100%">
       </a>
     <?php endif; ?>
     </div>

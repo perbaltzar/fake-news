@@ -11,26 +11,46 @@ if (isset($_GET['readArticle'])){
 
 require __DIR__.'/article_loop.php';
 $sorted_authors = getAuthorInfo($authors, $newsPost['author']);
+$related_articles = getRelatedArticle($sorted_posts, $newsPosts);
 
 ?>
 <div class="row">
 
   <?php foreach ($sorted_authors as $sorted_author): ?>
-    <div class="col-3">
+    <div class="col-sm-6 col-md-4 d-flex justify-content-end">
       <img style = "height: 150px;" class = "img-thumbnail rounded-circle" src="<?=$sorted_author['imgURL']?>">
     </div>
-    <div class="col-3">
+    <div class="col-sm-6 col-8">
 
       <a href="articles.php?sortBy=selectedAuthor&authorName=<?=$sorted_author['firstname']?>"> <p>Read more from <?= $sorted_author['firstname'] . ' ' . $sorted_author['lastname'];?></a>
+      </div>
+    <?php endforeach ?>
+
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <p>You may also like:</p>
     </div>
-  <?php endforeach ?>
+  </div>
+  <div class="row">
+    <?php foreach($related_articles as $related_article) : ?>
+      <div class="col-xs-12 col-4">
+        <div class="crop">
+          <a href="read-article.php?isReading=true&readArticle=<?=$related_article['articleID'];?>">
+            <img class="" src="<?=$related_article['contentIMG']; ?>">
+          </div>
+          <div>
+          </a>
+          <a href="read-article.php?isReading=true&readArticle=<?=$related_article['articleID'];?>">
+            <h6><?=$related_article['title']; ?></h6>
 
+          </a>
+        </div>
+      </div>
+    <?php endforeach; ?>
 
+  </div>
+<hr>
 
-
-</div>
-
-
-
-
-<?php require __DIR__.'/footer.php';?>
+  <?php require __DIR__.'/footer.php';?>

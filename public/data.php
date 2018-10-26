@@ -97,6 +97,16 @@ $newsPosts = [
     'contentIMG' => 'https://qpr2l7.imagenii.com/static1.seesainttropez.com/image_uploader/photos/e4/large/where-to-stay-in-saint-tropez-with-friends.jpg?f=q(v=.8)&auth=92db279fc2264a0f42037a965f5a771dd652df27',
     'articleID' => 9
   ]
+  ,
+  [
+    'title' => 'Vincent på Gotland?',
+    'author' => 'Mattias',
+    'content' => file_get_contents(__DIR__.'/articles/article10.txt'),
+    'publishDate' => '2018-10-16',
+    'likeCounter' => 789,
+    'contentIMG' => 'https://www.stockholmsveckan.com/wp-content/uploads/2011/07/Visby-Stockholmsveckan1.jpg',
+    'articleID' => 10
+  ]
 ];
 $authors = [
   ['firstname' => 'Nils',

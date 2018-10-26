@@ -4,33 +4,30 @@ require __DIR__.'/header.php';
 
 ?>
       <div class="row">
-        <div class="col-12">
+        <div class="col-12 d-flex justify-content-center">
           Sort by:
         </div>
       </div>
         <div class="row"><!--SELECTOR ROW-->
-          <div class="col-3">
+          <div class="col-12 d-flex justify-content-center">
 
-          </div>
-          <div class="col-2">
+
             <form>
-              <button type="sort" name="sortBy" value="author">Author</button>
+              <button class="btn-info rounded text-light" type="sort" name="sortBy" value="author">Author</button>
+
+              <button class="btn-info rounded text-light" type="sort" name="sortBy" value="date">Date</button>
+
+              <button class="btn-info rounded text-light" type="sort" name="sortBy" value="likes">Popular</button>
             </form>
-          </div>
-          <div class="col-2">
-            <form>
-              <button type="sort" name="sortBy" value="date">Date</button>
-            </form>
-          </div>
-          <div class="col-2">
-            <form>
-              <button type="sort" name="sortBy" value="likes">Popular</button>
-            </form>
-          </div>
-          <div class="col-3">
+
           </div>
         </div><!--/SELECTOR ROW-->
       <?php
+      if (isset($_GET['isAuthorSelected'])){
+        if ($_GET['isAuthorSelected'] == true){
+          $sorted_posts = selectByName($newsPosts, $_GET['authorName']);
+        }
+      }
       if (isset($_GET['sortBy'])){
         $sortBy = $_GET['sortBy'];
         //If statement to see how the articles are to be sorted.
@@ -40,8 +37,6 @@ require __DIR__.'/header.php';
           $sorted_posts = orderByDate($newsPosts);
         }elseif ($sortBy === 'author'){
           $sorted_posts = orderByAuthor($newsPosts);
-        }elseif ($sortBy === 'selectedAuthor'){
-          $sorted_posts = selectByName($newsPosts, $_GET['authorName']);
         }
       }
       require __DIR__.'/article_loop.php';
