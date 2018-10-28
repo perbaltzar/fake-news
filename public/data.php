@@ -107,6 +107,16 @@ $newsPosts = [
     'contentIMG' => 'https://www.stockholmsveckan.com/wp-content/uploads/2011/07/Visby-Stockholmsveckan1.jpg',
     'articleID' => 10
   ]
+  ,
+  [
+    'title' => 'Vincent - Trollkonstnär på Black Jackbordet',
+    'author' => 'Mattias',
+    'content' => file_get_contents(__DIR__.'/articles/article11.txt'),
+    'publishDate' => '2018-10-16',
+    'likeCounter' => 891,
+    'contentIMG' => 'http://www.africansunhotels.com/data/media/00000051/blackjack.jpg',
+    'articleID' => 11
+  ]
 ];
 $authors = [
   ['firstname' => 'Nils',

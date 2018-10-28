@@ -1,5 +1,5 @@
 <?php foreach($sorted_posts as $newsPost):?>
-  <div class="row"><!--SECOND ROW-->
+  <div class="row"><!--FIRST ROW-->
     <div class ="col-10 img-box">
     <?php
     if ($newsPost['contentIMG'] !== ''):?>
@@ -9,12 +9,10 @@
     <?php endif; ?>
     </div>
     <div class="col-2">
-
+      <!--EMPTY DIV-->
     </div>
-  </div><!--END SECOND ROW-->
-
-  <div class="row"><!--FIRST ROW-->
-
+  </div><!--END FIRST ROW-->
+  <div class="row"><!--SECOND ROW-->
     <div class="col-10 headline-container" id="article<?=$newsPost['articleID']?>">
       <a href="read-article.php?isReading=true&readArticle=<?=$newsPost['articleID'];?>">
       <h2><?= $newsPost['title'];?></h2>
@@ -22,11 +20,10 @@
       </a>
     </div>
     <div class="col-2">
-
+      <!--EMPTY DIV-->
     </div>
-  </div><!--END FIRST ROW-->
+  </div><!--END SECOND ROW-->
   <div class="row author-date-container"><!--THIRD ROW-->
-
     <div class="col-2">
       <p>By: <?=$newsPost['author'];?></p>
       <p><?=$newsPost['publishDate'];?></p>
@@ -36,7 +33,6 @@
     </div>
   </div><!--END THIRD ROW-->
   <div class="row"><!--FOURTH ROW-->
-
     <div class="col-10">
       <p>
       <a href="read-article.php?isReading=true&readArticle=<?=$newsPost['articleID'];?>">
@@ -50,17 +46,18 @@
         ?>
       </a>
       </p>
-    </div>
+    </div><!--/-COL-10-->
     <div class="col-2">
-
+      <!--EMPTY DIV-->
     </div>
   </div><!--END FOURTH ROW-->
-  <div class="row"><!--SIXTH ROW-->
+  <div class="row"><!--FIFTH ROW-->
     <div class="col-9">
+      <!--EMPTY DIV-->
     </div>
     <div class="col-3">
       <?= $newsPost['likeCounter'];?><img class="thumb" src="svg/thumb.svg">
     </div>
-  </div><!--END SIXTH ROW-->
+  </div><!--END FIFTH ROW-->
   <hr>
 <?php endforeach; ?>

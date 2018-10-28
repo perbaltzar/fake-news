@@ -54,6 +54,7 @@ h2{
   font-weight: lighter;
   font-size: 11px;
 }
+
 /* Croping the thumbnail "related articles" */
 .crop {
  height: 130px;
@@ -64,10 +65,12 @@ h2{
  height: auto;
  width: 270px;
 }
+
 /*Making small pretty buttons*/
+
 .sort-button{
    margin: 0 5px 5px 5px;
-   width: 80px;
+   width: 90px;
    height: 28px;
    border-radius: 5px;
    color: white;
@@ -78,4 +81,18 @@ h2{
 }
 .sort-button:hover{
   background-color: #0B8597;
+}
+.sort-button:hover .close-svg{
+  opacity: 1;
+}
+.filter-button{
+  width: 120px;
+  background-color: grey;
+}
+.close-svg {
+  height: 16px;
+  width: 16px;
+  position: absolute;
+  transform: translateX(-45px);
+  opacity: .2;
 }

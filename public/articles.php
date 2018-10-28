@@ -1,86 +1,78 @@
 <?php
 require __DIR__.'/header.php';
 
-
+//Making URL for the sort-by Boxes
+if (isset($_GET['sortBy'])){
+  $sortBy = $_GET['sortBy'];
+  $isSortBySelected = true;
+  $sortByURL = '?sortBy='.$_GET['sortBy'];
+}else{
+  $sortByURL = '';
+  $isSortBySelected = false;
+}
 ?>
       <div class="row">
-        <div class="col-12 d-flex justify-content-center">
-          Sort by:
-        </div>
-      </div>
+        	<div class="col-2">
+         	Filter:
+   		</div>
+   		<div class="col-8 d-flex justify-content-center">
+         	Sort by:
+      	</div>
+      	<div class="col-2">
+				<!--EMPTY DIV-->
+      	</div>
+      </div><!-- END ROW -->
         <div class="row"><!--SELECTOR ROW-->
-          <div class="col-2">
+          <div class="col-4 d-flex">
             <?php
-              if ($isAuthorSelected):?>
-                <form>
-                  <button class="btn-info rounded text-light" type="sort" name="isAuthorSelected" value=""><?= $authorName?></button>
-                </form>
-
-              <?php endif; ?>
-
-
-          </div>
-          <div class="col-8 d-flex justify-content-center">
-
-
-
-              <!-- <button class="btn-info rounded text-light" type="sort" name="sortBy" value="author">Author</button>-->
-                <div class="sort-button"><a href="articles.php?sortBy=author<?=$isauthor_printing?>">Author </a></div>
-                <div class="sort-button"><a href="articles.php?sortBy=date<?=$isauthor_printing?>"> Date </a></div>
-                <div class="sort-button"><a href="articles.php?sortBy=likes<?=$isauthor_printing?>"> Popularity </a></div>
-              <!-- <button class="btn-info rounded text-light" type="sort" name="sortBy" value="date">Date</button> -->
-
-              <!-- <button class="btn-info rounded text-light" type="sort" name="sortBy" value="likes">Popular</button> -->
-
-
-          </div>
-          <div class="col-2">
-          </div>
+            if ($isAuthorSelected):?>
+            <div class="sort-button filter-button">
+					<img class="close-svg" src="svg/close.svg">
+					<a href="articles.php<?= $sortByURL;?>">
+               	<?= $authorName?>
+					</a>
+         	</div>
+         	<?php endif;
+         	if ($isSortBySelected):?>
+            <div class="sort-button filter-button">
+               <img class="close-svg" src="svg/close.svg">
+               <a href="articles.php?<?= $authorSelectedURL;?>"><?=$sortBy;?></a>
+            </div>
+            <?php endif;?>
+         </div>
+         <div class="col-4 d-flex justify-content-center">
+         	<div class="sort-button"><a href="articles.php?sortBy=Author<?=$authorSelectedURL?>">Author</a></div>
+            <div class="sort-button"><a href="articles.php?sortBy=Date<?=$authorSelectedURL?>">Date</a></div>
+            <div class="sort-button"><a href="articles.php?sortBy=Popularity<?=$authorSelectedURL?>">Popularity </a></div>
+         </div>
+         <div class="col-4">
+				<!--EMPTY DIV-->
+         </div>
         </div><!--/SELECTOR ROW-->
-      <?php
+      	<?php
+	      if (!isset($_GET['isAuthorSelected']) || !isset($_GET['sortBy'])){
+	      	$sorted_posts = $newsPosts;
+	      }
+      	//Checking if an Author is selected
+      	if (isset($_GET['isAuthorSelected'])){
+        		if ($_GET['isAuthorSelected'] == true){
+          		$sorted_posts = selectByName($newsPosts, $_GET['authorName']);
+        		}
+      	}
+    		//Checking how to sort the selected articles
+      	if (isset($_GET['sortBy'])){
+        		//If statement to see how the articles are to be sorted.
+        		if ($sortBy === 'Popularity'){
+          		$sorted_posts = orderByLikes($sorted_posts);
+        		}elseif ($sortBy === 'Date'){
+          		$sorted_posts = orderByDate($sorted_posts);
+        		}elseif ($sortBy === 'Author'){
+          		$sorted_posts = orderByAuthor($sorted_posts);
+        		}
+      	}
+      	require __DIR__.'/article_loop.php';
+			?>
 
-
-      if (!isset($_GET['isAuthorSelected']) || !isset($_GET['sortBy'])){
-          $sorted_posts = $newsPosts;
-      }
-
-      //Checking if an author is selected
-      if (isset($_GET['isAuthorSelected'])){
-        if ($_GET['isAuthorSelected'] == true){
-        //  $authorName = $_GET['authorName'];
-          $sorted_posts = selectByName($newsPosts, $_GET['authorName']);
-        }
-      }
-
-    //Checking how to sort the selected articles
-      if (isset($_GET['sortBy'])){
-
-        $sortBy = $_GET['sortBy'];
-        //If statement to see how the articles are to be sorted.
-        if ($sortBy === 'likes'){
-          $sorted_posts = orderByLikes($sorted_posts);
-        }elseif ($sortBy === 'date'){
-          $sorted_posts = orderByDate($sorted_posts);
-        }elseif ($sortBy === 'author'){
-          $sorted_posts = orderByAuthor($sorted_posts);
-        }
-      }
-      require __DIR__.'/article_loop.php';
-
-
-
-
-
-        ?>
-        <!--The Very Right Column-->
-
-
-
-
-
-
-
-      <!--The Very Right Column-->
 
 
 

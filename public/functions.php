@@ -155,7 +155,7 @@ function getRelatedArticle (array $active_article, array $articles): array{
 
   //Right now it just chose random
   $returnarticles = [];
-  //Checking for doubles
+  //Checking for doubles  
   for ($i=0; $i < 3; $i++) {
     $random_number = rand(0, count($articles)-1);
     $chosen_articles[$i] = $random_number;
@@ -163,7 +163,7 @@ function getRelatedArticle (array $active_article, array $articles): array{
       if ($chosen_articles[$index2] === $random_number){
         $i--;
         break;
-      } 
+      }
     }
   }
   foreach ($chosen_articles as $chosen_article){
