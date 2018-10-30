@@ -131,14 +131,57 @@ $newsPosts = [
 	]
 	,
 	[
-		'title' => 'Googles Nya Ägare',
-		'author' => 'Adrian',
+		'title' => 'Nytt Superchip, Nu Ännu Mindre',
+		'author' => 'Per',
 		'content' => file_get_contents(__DIR__.'/articles/article13.txt'),
 		'publishDate' => '2018-10-20',
 		'likeCounter' => 171,
-		'contentIMG' => 'http://www.arch2o.com/wp-content/uploads/2016/06/Arch2O-Google-headquarters-13.jpg',
+		'contentIMG' => 'https://media.wired.com/photos/5acd3f8a31a5843394302e91/master/pass/Microchip-FINAL.jpg',
 		'articleID' => 13
 	]
+	,
+	[
+		'title' => 'Första Flygande Bilen',
+		'author' => 'Erik',
+		'content' => file_get_contents(__DIR__.'/articles/article14.txt'),
+		'publishDate' => '2018-10-21',
+		'likeCounter' => 212,
+		'contentIMG' => 'https://www.maxim.com/.image/t_share/MTU0MDQyMDc4MzQxOTY1NTYz/pal-v-flying-car.jpg',
+		'articleID' => 14
+	]
+	,
+	[
+		'title' => 'Vincentium, Ett Nytt Grundämne',
+		'author' => 'Charmaine',
+		'content' => file_get_contents(__DIR__.'/articles/article15.txt'),
+		'publishDate' => '2018-10-24',
+		'likeCounter' => 171,
+		'contentIMG' => 'https://static1.squarespace.com/static/54e6843ae4b0866feeee689e/54e7dd13e4b03ce768a75c66/54e7de94e4b0904aceabc028/1424481941827/Cool+Mine+A.jpg',
+		'articleID' => 15
+	]
+	,
+	[
+		'title' => 'Vincent In Space',
+		'author' => 'Adrian',
+		'content' => file_get_contents(__DIR__.'/articles/article16.txt'),
+		'publishDate' => '2018-10-26',
+		'likeCounter' => 399,
+		'contentIMG' => 'https://wonderopolis.org/wp-content/uploads/2018/02/bored_space.jpg',
+		'articleID' => 16
+	]
+	,
+	[
+		'title' => 'Home Sweet Home',
+		'author' => 'Adrian',
+		'content' => file_get_contents(__DIR__.'/articles/article17.txt'),
+		'publishDate' => '2018-10-29',
+		'likeCounter' => 602,
+		'contentIMG' => 'https://ae01.alicdn.com/kf/HTB1IQo7KpXXXXaEXFXXq6xXFXXXp/78-54-3mm-Old-Postcard-SWEDEN-multiview-Metal-Wrapped-Souvenir-Fridge-Magnets-20340-Rigid-Plate-Tourist.jpg_640x640.jpg.jpg',
+		'articleID' => 17
+	]
+
+
+
 ];
 $authors = [
 	['firstname' => 'Nils',
