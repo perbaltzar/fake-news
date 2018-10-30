@@ -1,11 +1,6 @@
 <?php
 declare(strict_types=1);
 
-
-
-//--------------------------------------------------------
-//--------------------------------------------------------
-//the functions of the show.
 /**
 * Returns articles with a specific author
 * @param  array All the excisting articles
@@ -71,7 +66,7 @@ function orderByLikes(array $data): array
 */
 function orderByDate(array $data): array
 {
-  function compare($a, $b){
+  function compare(array $a, array $b): int{
     $a_datenumber = strtotime($a['publishDate']);
     $b_datenumber = strtotime($b['publishDate']);
     if ($a_datenumber == $b_datenumber) {
@@ -92,13 +87,13 @@ function orderByDate(array $data): array
 */
 function orderByAuthor(array $data): array
 {
-  function compare_lastname($a, $b)
+  function compareName(array $a, array $b): int
   {
     return strnatcmp($a['author'], $b['author']);
   }
 
   // sort alphabetically by name
-  usort($data, 'compare_lastname');
+  usort($data, 'compareName');
   return $data;
 }
 //--------------------------------------------------------
@@ -124,7 +119,7 @@ function getRandomArticle(array $articles): array {
 * @return array           an array with the only selected article
 */
 function getSelectedArticle(int $article, array $articles): array {
-  return array_filter($articles, function($articles) use ($article) {
+  return array_filter($articles, function(array $articles) use ($article): bool {
     return $articles['articleID'] === $article;
 
   });
@@ -155,7 +150,7 @@ function getRelatedArticle (array $active_article, array $articles): array{
 
   //Right now it just chose random
   $returnarticles = [];
-  //Checking for doubles  
+  //Checking for doubles
   for ($i=0; $i < 3; $i++) {
     $random_number = rand(0, count($articles)-1);
     $chosen_articles[$i] = $random_number;

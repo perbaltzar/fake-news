@@ -37,7 +37,9 @@
       <p>
       <a href="read-article.php?isReading=true&readArticle=<?=$newsPost['articleID'];?>">
         <?php
-        //If-statement to see if we're in the read-article section. Shortening the text or not
+				//------------------------------------------------------------------------------------
+				//If-statement to see if we're in the read-article section. Shortening the text or not
+				//------------------------------------------------------------------------------------
         if ($isReading === 'true'){
           echo $newsPost['content'];
         }else{

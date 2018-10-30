@@ -13,5 +13,6 @@ Per Baltzar
 
 ## Testers
 Nils Nathorst Windahl
+Erik Arvidsson
 
 YRGO 2018

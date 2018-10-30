@@ -4,7 +4,9 @@ declare(strict_types=1);
 require __DIR__.'/functions.php';
 require __DIR__.'/data.php';
 
+//-----------------------------
 //Making the URL for the Navbar
+//-----------------------------
 if (isset($_GET['isAuthorSelected']) && isset($_GET['authorName']))
 {
 	$isAuthorSelected = $_GET['isAuthorSelected'];

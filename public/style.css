@@ -4,9 +4,7 @@ text-decoration: none;
 }
 .white{
   color: white;
-
 }
-
 a:hover
 {
  color: inherit;
@@ -20,9 +18,7 @@ a:hover
 height: 20px;
 width: 20px;
 }
-
 .img-box{
-
   margin-top: 30px;
 }
 .article-img{
@@ -67,7 +63,6 @@ h2{
 }
 
 /*Making small pretty buttons*/
-
 .sort-button{
    margin: 0 5px 5px 5px;
    width: 90px;

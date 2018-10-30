@@ -17,7 +17,9 @@ $related_articles = getRelatedArticle($sorted_posts, $newsPosts);
 <div class="row">
 
 	<?php
+	//--------------------------------------------
 	//Prints out the information about the author
+	//--------------------------------------------
 	foreach ($sorted_authors as $sorted_author): ?>
 		<div class="col-sm-6 col-md-4 d-flex justify-content-end">
 			<img style = "height: 150px;" class = "img-thumbnail rounded-circle" src="<?=$sorted_author['imgURL']?>">
@@ -37,7 +39,9 @@ $related_articles = getRelatedArticle($sorted_posts, $newsPosts);
 	</div>
 	<div class="row">
 		<?php
+		//----------------------------------------------------------
 		//Prints all the related articles, (right now, random ones)
+		//----------------------------------------------------------
 		foreach($related_articles as $related_article) : ?>
 			<div class="col-xs-12 col-4">
 				<div class="crop">
