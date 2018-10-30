@@ -33,12 +33,12 @@ Feel free to fork or clone, but since it's for a school assignment, I'd like to 
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
 ## Acknowledgments
 
 * I'd like to thank my Mom
-* Vincent and Elina for unicorn teachers, unique!
+* Vincent and Elina for being unicorn teachers, unique and fairy tale like!
 
 
 YRGO 2018
