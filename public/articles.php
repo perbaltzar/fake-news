@@ -26,6 +26,9 @@ if (isset($_GET['sortBy'])){
 <div class="row"><!--SELECTOR ROW-->
 	<div class="col-4 d-flex">
 		<?php
+		//-------------------------------------------------------
+		// Check if chosen sorting should be out out in a div
+		//-------------------------------------------------------
 		if ($isAuthorSelected):?>
 		<div class="sort-button filter-button">
 			<img class="close-svg" src="svg/close.svg">
@@ -55,14 +58,14 @@ if (isset($_GET['sortBy'])){
 // Checking if no articles is selected or sorted so the articles is default by order in array
 //--------------------------------------------------------------------------------------------
 if (!isset($_GET['isAuthorSelected']) || !isset($_GET['sortBy'])){
-	$sorted_posts = $newsPosts;
+	$sortedPosts = $newsPosts;
 }
 //-----------------------------------
 // Checking if an Author is selected
 //-----------------------------------
 if (isset($_GET['isAuthorSelected'])){
 	if ($_GET['isAuthorSelected'] == true){
-		$sorted_posts = selectByName($newsPosts, $_GET['authorName']);
+		$sortedPosts = selectByName($newsPosts, $_GET['authorName']);
 	}
 }
 //-------------------------------------------
@@ -70,11 +73,11 @@ if (isset($_GET['isAuthorSelected'])){
 //-------------------------------------------
 if (isset($_GET['sortBy'])){
 	if ($sortBy === 'Popularity'){
-		$sorted_posts = orderByLikes($sorted_posts);
+		$sortedPosts = orderByLikes($sortedPosts);
 	}elseif ($sortBy === 'Date'){
-		$sorted_posts = orderByDate($sorted_posts);
+		$sortedPosts = orderByDate($sortedPosts);
 	}elseif ($sortBy === 'Author'){
-		$sorted_posts = orderByAuthor($sorted_posts);
+		$sortedPosts = orderByAuthor($sortedPosts);
 	}
 }
 require __DIR__.'/article_loop.php';

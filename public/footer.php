@@ -5,10 +5,10 @@
       </div>
     </div><!--ROW1-->
 		<div class="row">
-			<div class="col-10">
+			<div class="col-8 col-xs-1">
 			</div>
-			<div class="col-2">
-				Per Baltzar
+			<div class="col-4 col-xs-6 text-secondary">
+			<small>	© Per Baltzar</small>
 			</div>
 		</div>
     <!-- Optional JavaScript -->

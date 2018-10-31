@@ -4,14 +4,15 @@ require __DIR__.'/header.php';
 //Get which article you want to read
 if (isset($_GET['readArticle'])){
 	$article = $_GET['readArticle'];
-	$sorted_posts = getSelectedArticle($article, $newsPosts);
+	$sortedPosts = getSelectedArticle($article, $newsPosts);
 
 
 }
 
 require __DIR__.'/article_loop.php';
-$sorted_authors = getAuthorInfo($authors, $newsPost['author']);
-$related_articles = getRelatedArticle($sorted_posts, $newsPosts);
+$sortedAuthors = getAuthorInfo($authors, $sortedPost['author']);
+$relatedArticles = getRelatedArticle($sortedPosts, $newsPosts);
+
 
 ?>
 <div class="row">
@@ -20,13 +21,15 @@ $related_articles = getRelatedArticle($sorted_posts, $newsPosts);
 	//--------------------------------------------
 	//Prints out the information about the author
 	//--------------------------------------------
-	foreach ($sorted_authors as $sorted_author): ?>
+	foreach ($sortedAuthors as $sortedAuthor): ?>
 		<div class="col-sm-6 col-md-4 d-flex justify-content-end">
-			<img style = "height: 150px;" class = "img-thumbnail rounded-circle" src="<?=$sorted_author['imgURL']?>">
+			<a href="articles.php?isAuthorSelected=true&authorName=<?= $sortedAuthor['firstname'];?>">
+				<img style = "height: 150px;" class = "img-thumbnail rounded-circle" src="<?=$sortedAuthor['imgURL']?>">
+			</a>
 		</div>
 		<div class="col-sm-6 col-8 d-flex align-items-center">
 
-			<a href="articles.php?isAuthorSelected=true&authorName=<?= $sorted_author['firstname'];?>"> <p>Read more from <?= $sorted_author['firstname'] . ' ' . $sorted_author['lastname'];?></a>
+			<a href="articles.php?isAuthorSelected=true&authorName=<?= $sortedAuthor['firstname'];?>"> <p>Read more from <?= $sortedAuthor['firstname'] . ' ' . $sortedAuthor['lastname'];?></a>
 			</div>
 		<?php endforeach ?>
 
@@ -42,16 +45,16 @@ $related_articles = getRelatedArticle($sorted_posts, $newsPosts);
 		//----------------------------------------------------------
 		//Prints all the related articles, (right now, random ones)
 		//----------------------------------------------------------
-		foreach($related_articles as $related_article) : ?>
+		foreach($relatedArticles as $relatedArticle) : ?>
 			<div class="col-xs-12 col-4">
 				<div class="crop">
-					<a href="read-article.php?isReading=true&readArticle=<?=$related_article['articleID'];?>">
-						<img class="" src="<?=$related_article['contentIMG']; ?>">
+					<a href="read-article.php?isReading=true&readArticle=<?=$relatedArticle['articleID'];?>">
+						<img class="" src="<?=$relatedArticle['contentIMG']; ?>">
 					</a>
 				</div>
 				<div>
-					<a href="read-article.php?isReading=true&readArticle=<?=$related_article['articleID'];?>">
-					<h6><?=$related_article['title']; ?></h6>
+					<a href="read-article.php?isReading=true&readArticle=<?=$relatedArticle['articleID'];?>">
+					<h6><?=$relatedArticle['title']; ?></h6>
 					</a>
 				</div>
 			</div>

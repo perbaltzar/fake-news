@@ -46,12 +46,12 @@ function selectByName(array $articles, string $name): array {
 
 function orderByLikes(array $data): array
 {
-  function compare($a, $b)
+  function compare($likes1, $likes2)
   {
-    if ($a['likeCounter'] == $b['likeCounter']) {
+    if ($likes1['likeCounter'] == $likes2['likeCounter']) {
       return 0;
     }
-    return ($a['likeCounter'] > $b['likeCounter']) ? -1 : 1;
+    return ($likes1['likeCounter'] > $likes2['likeCounter']) ? -1 : 1;
   }
 
   usort($data, "compare");
@@ -66,16 +66,16 @@ function orderByLikes(array $data): array
 */
 function orderByDate(array $data): array
 {
-  function compare(array $a, array $b): int{
-    $a_datenumber = strtotime($a['publishDate']);
-    $b_datenumber = strtotime($b['publishDate']);
-    if ($a_datenumber == $b_datenumber) {
+  function compareDate(array $date1, array $date2): int{
+    $date1 = strtotime($date1['publishDate']);
+    $date2 = strtotime($date2['publishDate']);
+    if ($date1 == $date2) {
       return 0;
     }
-    return ($a_datenumber > $b_datenumber) ? -1 : 1;
+    return ($date1 > $date2) ? -1 : 1;
   }
 
-  usort($data, "compare");
+  usort($data, "compareDate");
   return $data;
 }
 //--------------------------------------------------------
@@ -87,9 +87,9 @@ function orderByDate(array $data): array
 */
 function orderByAuthor(array $data): array
 {
-  function compareName(array $a, array $b): int
+  function compareName(array $name1, array $name2): int
   {
-    return strnatcmp($a['author'], $b['author']);
+    return strnatcmp($name1['author'], $name2['author']);
   }
 
   // sort alphabetically by name
@@ -105,9 +105,9 @@ function orderByAuthor(array $data): array
 * @return array a random article
 */
 function getRandomArticle(array $articles): array {
-  $returnarticles = [];
-  $returnarticles[] = $articles[rand(0, count($articles)-1)];
-  return $returnarticles;
+  $returnArticles = [];
+  $returnArticles[] = $articles[rand(0, count($articles)-1)];
+  return $returnArticles;
 }
 //--------------------------------------------------------
 //--------------------------------------------------------
@@ -146,24 +146,28 @@ function getAuthorInfo(array $authors, string $name): array {
  * @param  array $articles       [description]
  * @return array                 [description]
  */
-function getRelatedArticle (array $active_article, array $articles): array{
-
-  //Right now it just chose random
-  $returnarticles = [];
+function getRelatedArticle (array $activeArticle, array $articles): array{
+	//------------------------------------------
+  //Right now it just chose a random article
+  // Thats why $activeArticle is not in use
+	//------------------------------------------
+  $returnArticles = [];
+	//---------------------
   //Checking for doubles
-  for ($i=0; $i < 3; $i++) {
-    $random_number = rand(0, count($articles)-1);
-    $chosen_articles[$i] = $random_number;
-    for ($index2=0; $index2 < $i; $index2++) {
-      if ($chosen_articles[$index2] === $random_number){
+	//---------------------
+  for ($i = 0; $i < 3; $i++) {
+    $randomNumber = rand(0, count($articles)-1);
+    $chosenArticles[$i] = $randomNumber;
+    for ($index2 = 0; $index2 < $i; $index2++) {
+      if ($chosenArticles[$index2] === $randomNumber){
         $i--;
         break;
       }
     }
   }
-  foreach ($chosen_articles as $chosen_article){
-    $returnarticles[] = $articles[$chosen_article];
+  foreach ($chosenArticles as $chosenArticle){
+    $returnArticles[] = $articles[$chosenArticle];
   }
-  return $returnarticles;
+  return $returnArticles;
 
 }

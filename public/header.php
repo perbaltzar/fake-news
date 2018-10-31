@@ -37,7 +37,9 @@ if (isset($_GET['isAuthorSelected']) && isset($_GET['authorName']))
 		</div><!--/Col-md-2-->
 		<div class="col-md-8">
 			<!--  HEADLINE  -->
-			<h1 class="display-4">WUES 18</h1>
+			 <a href="index.php?isReading=false<?=$authorSelectedURL;?>">
+				 <h1 class="display-4">WUES 18</h1>
+			 </a>
 			<h6>-the fantastic real fake news site of WU18</h6>
 			<!--  NAVBAR  -->
 			<nav class="navbar navbar-expand-lg navbar-light bg-info">
@@ -47,7 +49,7 @@ if (isset($_GET['isAuthorSelected']) && isset($_GET['authorName']))
 				</button>
 				<div class="collapse navbar-collapse fixed-position" id="navbarNavAltMarkup">
 					<div class="navbar-nav">
-						<a class="nav-item nav-link text-light" href="index.php?isReading=false<?=$authorSelectedURL;?>">Home <span class="sr-only">(current)</span></a>
+						<a class="nav-item nav-link text-light" href="index.php?isReading=false<?=$authorSelectedURL;?>">Home</a>
 						<a class="nav-item nav-link text-light" href="articles.php?isReading=false<?=$authorSelectedURL;?>">Articles</a>
 						<a class="nav-item nav-link text-light" href="authors.php?isReading=false<?=$authorSelectedURL;?>">Authors</a>
 					</div>

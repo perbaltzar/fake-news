@@ -1,5 +1,4 @@
 # Fake News Project
-Making a news feed in php
 <img src="https://media.giphy.com/media/vy9M1K3RBg77kESDzg/giphy.gif" width="100%">
 
 ### Prerequisites
@@ -29,6 +28,7 @@ Feel free to fork or clone, but since it's for a school assignment, I'd like to 
 ## Testers
 * Nils Nathorst Windahl
 * Erik Arvidsson
+* Adrian Jungnelius
 
 
 ## License
