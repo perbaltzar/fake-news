@@ -9,7 +9,7 @@ for example MAMP
 ### Installing
 
 Clone or Fork the repository
-Open index.php at your local server, ex localhost:8888
+Open index.php from the *public* folder in your local server, ex localhost:8888
 
 ## Built With
 
